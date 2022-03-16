@@ -25,5 +25,7 @@ shinyUI(fluidPage(
     mainPanel(
       plotOutput("distPlot")
     )
-  )
+  ),
+  
+  fileInput('csv', 'Input CSV', accept = '.csv')
 ))

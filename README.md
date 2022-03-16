@@ -32,8 +32,6 @@ This program and the accompanying materials are made available under the terms o
 
 ## Contact
 
-## Contact
-
 :house_with_garden: Orcro Ltd. team@orcro.co.uk
 
 :hammer: Maintainer alexander.murphy@orcro.co.uk

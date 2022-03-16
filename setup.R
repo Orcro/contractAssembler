@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2022 Orcro Ltd. <team@orcro.co.uk>
 #
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: CC0-1.0
 
 
 # don't execute this script every deployment! jump ahead to line 18
@@ -13,8 +13,8 @@ install.packages("shiny")
 # deploy contractAssembler to  https://galacticalex.shinyapps.io/contractassembler/
 library(rsconnect)
 
-# run w/ credentials from web dashboard
-rsconnect::setAccountInfo(name = 'galacticalex', 
+# run web dashboard (credentials omitted)
+rsconnect::setAccountInfo(name = '<USERNAME>', 
                           token = '<TOKEN>', 
                           secret = '<SECRET>')
 localLocation = "."

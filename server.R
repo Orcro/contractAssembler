@@ -8,6 +8,11 @@ library(shiny)
 # Server definition
 shinyServer(function(input, output) {
 
+  data <- reactive({
+    req(input$csv)
+    read.csv(input$csv$datapath)
+  })
+  
   output$distPlot = renderPlot({
 
     # generate bins based on input$bins from ui.R
