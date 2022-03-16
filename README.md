@@ -29,3 +29,11 @@ This program and the accompanying materials are made available under the terms o
 **[R](https://www.r-project.org/) version 4.1.2**
 
 **[Shiny](https://shiny.rstudio.com/) version 1.7.1**
+
+## Contact
+
+## Contact
+
+:house_with_garden: Orcro Ltd. team@orcro.co.uk
+
+:hammer: Maintainer alexander.murphy@orcro.co.uk

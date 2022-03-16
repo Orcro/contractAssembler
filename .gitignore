@@ -4,3 +4,7 @@
 
 # build artefacts
 /rsconnect
+.Rproj.user
+
+# IDE
+contractAssembler.Rproj
