@@ -11,10 +11,14 @@ shinyUI(fluidPage(
   # app header
   titlePanel("Example CSV upload"),
 
-  # user input
-  fileInput("csvUpload", "Upload CSV File", accept = '.csv'),
+  # user's csv input
+  fileInput(inputId = "csvUpload", 
+            label = "Upload CSV File", 
+            accept = '.csv'),
   
-  # input display
-  tableOutput("csvContents")
+  # display the input
+  tableOutput("userInput"), 
+  
+  textOutput("csvNames")
   
 ))

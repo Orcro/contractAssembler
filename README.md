@@ -4,7 +4,11 @@
 
 # contractAssembler
 
-[![REUSE status](https://api.reuse.software/badge/github.com/galacticalex/contractAssembler)](https://api.reuse.software/info/github.com/galacticalex/contractAssembler)
+<div align="center">
+
+[![REUSE status](https://api.reuse.software/badge/github.com/galacticalex/contractAssembler)](https://api.reuse.software/info/github.com/galacticalex/contractAssembler) [![GitHub](https://img.shields.io/github/license/galacticalex/contractAssembler)](https://img.shields.io/github/license/galacticalex/contractAssembler)
+
+</div>
 
 A web application written in [R](https://cran.r-project.org) with the help of [Shiny](https://shiny.rstudio.com/) which constructs (and manipulates) contracts based on a schema. The schema is provided by a `.csv` file. This project is a prototype.
 

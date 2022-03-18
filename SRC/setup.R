@@ -22,4 +22,5 @@ deployApp(localLocation, appName = "contractAssembler")
 
 # run locally
 library(shiny)
+setwd(localLocation)
 runApp()

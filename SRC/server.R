@@ -8,26 +8,35 @@ library(shiny)
 # Server definition
 shinyServer(function(input, output) {
   
-  output$csvContents = renderTable({
-    file = input$csvUpload
-    file.ext = tools::file_ext(file$datapath)
+  # for testing really... does the csv import properly?
+  output$userInput = renderTable({
     
-    req(file)
+    req(input$csvUpload)
+    read.csv(file = input$csvUpload$datapath)
     
-    # this needs to be specific to schema, just verifies csv for now
-    validate(need(file.ext == "csv", "CSV file required."))
-    
-    read.csv(file$datapath)
   })
-
-#  data <- reactive({
-#    uploadedFile = input$csvUpload
-#    
-#    if (is.null(uploadedFile))
-#      return(NULL)
-#    
-#    tbl = read.csv(uploadedFile$datapath)
-#    return(tbl)
-#  })
+  
+  inputData = reactive({
+    read.csv(file = input$csvUpload$datapath)
+  })
+  
+  output$csvNames = renderText({
+    tryCatch(
+      {
+        unlist(inputData()[1, ])
+      }, 
+      error=function(cond){
+        # is this scrappy? :-)
+      })
+  })
   
 })
+
+will.not.be.run = function() {
+  # for testing
+  
+  if (is.null(dim(input.data))) { 0 } else { dim(input.data[[1]]) }
+  tdat = as.data.frame(cbind(c(1, 2, 3), c("a", "b", "c")))
+  paste0(unlist(tdat[1, ]), collapse = "")
+  ?paste0
+}

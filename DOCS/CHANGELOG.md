@@ -24,7 +24,7 @@ Notable changes to this project will be documented in this file (log). This log 
 
 ### Fixed
 
-- n/a
+- [#2](https://github.com/galacticalex/contractAssembler/issues/2) by updating gitignore
 
 ## [0.0.1] - 17-01-2022
 

@@ -3,9 +3,11 @@
 # SPDX-License-Identifier: CC0-1.0
 
 # build artefacts
-/rsconnect
+SRC/rsconnect/
 .Rproj.user
+README.html
 
 # IDE
 contractAssembler.Rproj
-.Rdata
+.RData
+.Rhistory
