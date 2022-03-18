@@ -12,7 +12,7 @@ Notable changes to this project will be documented in this file (log). This log 
 
 ### Added
 
-- n/a
+- can now access data from uploaded schema
 
 ### Changed
 
