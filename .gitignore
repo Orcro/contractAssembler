@@ -4,7 +4,6 @@
 
 # build artefacts
 SRC/rsconnect/
-SRC/rsconnect/*
 .Rproj.user
 README.html
 
