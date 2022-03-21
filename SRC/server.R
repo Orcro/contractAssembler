@@ -8,22 +8,33 @@ library(shiny)
 # Server definition
 shinyServer(function(input, output) {
   
-  # for testing really... does the csv import properly?
+  
+  # hard-coded text on page:
+  output$csvTitle = renderText({
+    "<h3>Input Schema:</h3>"
+  })
+  output$contractFieldsTitle = renderText({
+    "<h3>Contract Fields:</h3>"
+  })
+  
+  
+  # does the csv import properly? display
   output$userInput = renderTable({
-    
     req(input$csvUpload)
     read.csv(file = input$csvUpload$datapath)
-    
   })
   
-  inputData = reactive({
+  
+  # user uploaded schema
+  inputSchema = reactive({
     read.csv(file = input$csvUpload$datapath)
   })
   
-  output$csvNames = renderText({
+  
+  output$contractFields = renderText({
     tryCatch(
       {
-        unlist(inputData()[1, ])
+        paste0(unlist(inputSchema()[, 1]), collapse = ", ")
       }, 
       error=function(cond){
         # is this scrappy? :-)
@@ -31,6 +42,7 @@ shinyServer(function(input, output) {
   })
   
 })
+
 
 will.not.be.run = function() {
   # for testing

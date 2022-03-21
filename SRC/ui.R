@@ -16,9 +16,16 @@ shinyUI(fluidPage(
             label = "Upload CSV File", 
             accept = '.csv'),
   
+  # schema view
+  # header: "<h3>Input Schema:</h3>"
+  tableOutput(outputId = "csvTitle"), 
   # display the input
-  tableOutput("userInput"), 
+  tableOutput(outputId = "userInput"), 
   
-  textOutput("csvNames")
+  # Contract fields view
+  # header: "<h3>Input Schema:</h3>"
+  tableOutput(outputId = "contractFieldsTitle"), 
+  # display the fields
+  textOutput(outputId = "contractFields")
   
 ))

@@ -13,10 +13,11 @@ Notable changes to this project will be documented in this file (log). This log 
 ### Added
 
 - can now access data from uploaded schema
+- titles
 
 ### Changed
 
-- n/a
+- Clearer style
 
 ### Removed
 
@@ -47,3 +48,6 @@ Notable changes to this project will be documented in this file (log). This log 
 ### Fixed
 
 - n/a
+
+[Unreleased]: https://github.com/galacticalex/contractAssembler
+[0.0.1]: https://github.com/galacticalex/contractAssembler

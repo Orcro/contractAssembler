@@ -1,0 +1,5 @@
+Type,Field_Name,Where_On_Form,Display
+Title_Text,,Main_Top,Initial Questions
+Qbox,,Main_Next,What's the legal name of the business?
+Qbox,,Main_Next,What's the trading name of <Business_Name>?
+Dynamic_Example,DE1,DE,"""Provider"" means <Business_Name>"
