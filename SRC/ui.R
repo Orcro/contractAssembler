@@ -26,6 +26,14 @@ shinyUI(fluidPage(
   # header: "<h3>Input Schema:</h3>"
   tableOutput(outputId = "contractFieldsTitle"), 
   # display the fields
-  textOutput(outputId = "contractFields")
+  textOutput(outputId = "contractFields"),
+  
+  # contract inputs, reacts to the schema
+  # header "widgets"
+  tableOutput(outputId = "widgetsTitle"),
+  # the input boxes etc.
+  wellPanel(
+      uiOutput(outputId = "theContract")
+  )
   
 ))
