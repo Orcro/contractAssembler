@@ -34,7 +34,7 @@ shinyServer(function(input, output) {
   output$contractFields = renderText({
     tryCatch(
       {
-        paste0(unlist(inputSchema()[, 1]), collapse = ", ")
+        paste0(unlist(inputSchema()[, "Type"]), collapse = ", ")
       }, 
       error=function(cond){
         # is this scrappy? :-)

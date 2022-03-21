@@ -17,7 +17,7 @@ library(rsconnect)
 rsconnect::setAccountInfo(name = '<USERNAME>', 
                           token = '<TOKEN>', 
                           secret = '<SECRET>')
-localLocation = "SRC"
+localLocation = "."
 deployApp(localLocation, appName = "contractAssembler")
 
 # run locally
