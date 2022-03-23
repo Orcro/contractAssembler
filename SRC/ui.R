@@ -9,7 +9,7 @@ library(shiny)
 shinyUI(fluidPage(
 
   # app header
-  titlePanel("Example CSV upload"),
+  titlePanel("Contract assembler prototype, version 0.1.0"),
 
   # user's csv input
   fileInput(inputId = "csvUpload", 
@@ -22,18 +22,26 @@ shinyUI(fluidPage(
   # display the input
   tableOutput(outputId = "userInput"), 
   
-  # Contract fields view
-  # header: "<h3>Input Schema:</h3>"
-  tableOutput(outputId = "contractFieldsTitle"), 
-  # display the fields
-  textOutput(outputId = "contractFields"),
+  ## testing only, remove?
+  ## Contract fields view
+  ## header: "<h3>Input Schema:</h3>"
+  #tableOutput(outputId = "contractFieldsTitle"), 
+  ## display the fields
+  #textOutput(outputId = "contractFields"),
   
   # contract inputs, reacts to the schema
   # header "widgets"
   tableOutput(outputId = "widgetsTitle"),
   # the input boxes etc.
   wellPanel(
+      uiOutput(outputId = "theForm")
+  ), 
+  
+  # contract output, reacts to user input in the previous widgets
+  tableOutput(outputId = "outputTitle"),
+  # the "raw" output (what format is this?)
+  wellPanel(
       uiOutput(outputId = "theContract")
-  )
+  ) 
   
 ))

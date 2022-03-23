@@ -7,85 +7,126 @@ library(shiny)
 
 # Server definition
 shinyServer(function(input, output) {
+  
+  
+  # hard-coded text on page:
+  output$csvTitle = renderText({
+    "<h3>Input Schema:</h3>"
+  })
+  # testing only, remove?
+  #output$contractFieldsTitle = renderText({
+  #    "<h3>Contract Fields:</h3>"
+  #})
+  output$tempTitle = renderText({
+    "Title Field"
+  })
+  output$widgetsTitle = renderText({
+    "<h3>Contract Widgets:</h3>"
+  })
+  output$outputTitle = renderText({
+    "<h3>Contract Output:</h3>"
+  })
+  
+  
+  # a list to hold useful things
+  ui.list = list()
+  
+  
+  # the magic is here
+  responsive.Widget = function(type, display) {
     
+    #id = as.character(id)
+    #output$id = renderText({ display })
     
-    # hard-coded text on page:
-    output$csvTitle = renderText({
-        "<h3>Input Schema:</h3>"
-    })
-    output$contractFieldsTitle = renderText({
-        "<h3>Contract Fields:</h3>"
-    })
-    output$tempTitle = renderText({
-        "Title Field"
-    })
-    output$widgetsTitle = renderText({
-        "<h3>Contract Widgets:</h3>"
-    })
+    switch (type,
+            qbox = textInput(inputId = "theForm", label = display), 
+            title_text = NULL,
+            c_text = NULL
+    )
+  }
+  
+  
+  contract.Text = function(type, display) {
     
+    #id = as.character(id)
+    #output$id = renderText({ display })
     
-    # a list to hold useful things
-    ui.list = list()
-    
-    
-    # the magic is here
-    responsive.Field = function(type) {
-        switch (type,
-                Qbox = textInput(inputId = "theContract", label = "Good"), 
-                Title_Text = textOutput(outputId = "tempTitle"), 
-                Dynamic_Example = NULL
-        )
-    }
-    
-    
-    # does the csv import properly? display
-    output$userInput = renderTable({
-        req(input$csvUpload)
-        read.csv(file = input$csvUpload$datapath)
-    })
-    
-    
-    # user uploaded schema
-    inputSchema = reactive({
-        read.csv(file = input$csvUpload$datapath)
-    })
-    
-    # the fields on the contract
-    #contract.Fields = reactive({
-    #    unlist(inputSchema()[, "Type"])
-    #})
-    
-    
-    output$contractFields = renderText({
-        tryCatch(
-            {
-                paste0(unlist(inputSchema()[, "Type"]), collapse = ", ")
-            }, 
-            error = function(cond){
-                # is this scrappy? :-)
-            })
-    })
-    
-    
-    output$theContract = renderUI({
-        tryCatch(
-            {
-                lapply(unlist(inputSchema()[, "Type"]), responsive.Field)
-            }, 
-            error = function(cond){
-                # 
-            })
-    })
-    
+    switch (type,
+            qbox = NULL, 
+            title_text = NULL,
+            c_text = display
+    )
+  }
+  
+  
+  # display the imported schema
+  output$userInput = renderTable({
+    req(input$csvUpload)
+    read.csv(file = input$csvUpload$datapath)
+  })
+  
+  
+  # user uploaded schema
+  inputSchema = reactive({
+    read.csv(file = input$csvUpload$datapath)
+  })
+  
+  # the fields on the contract
+  #contract.Fields = reactive({
+  #    unlist(inputSchema()[, "Type"])
+  #})
+  
+  
+  ## testing only, remove?
+  #output$contractFields = renderText({
+  #    tryCatch(
+  #        {
+  #            paste0(unlist(inputSchema()[, "Type"]), collapse = ", ")
+  #        }, 
+  #        error = function(cond){
+  #            # is this scrappy? :-)
+  #        })
+  #})
+  
+  
+  output$theForm = renderUI({
+    tryCatch(
+      {
+        #c.index = 1:length(unlist(inputSchema()))
+        
+        mapply(responsive.Widget, 
+        #       c.index,
+               unlist(inputSchema()[, "Type"]),
+               unlist(inputSchema()[, "Display"]))
+      }, 
+      error = function(cond){
+        # 
+      })
+  })
+  
+  
+  output$theContract = renderText({
+    req(input$csvUpload)
+    paste0(unlist(mapply(contract.Text, 
+           unlist(inputSchema()[, "Type"]), 
+           unlist(inputSchema()[, "Display"]))), 
+           collapse = "</br>")
+  })
+  
+  
 })
 
 
 will.not.be.run = function() {
-    # for testing
-    
-    if (is.null(dim(input.data))) { 0 } else { dim(input.data[[1]]) }
-    tdat = as.data.frame(cbind(c(1, 2, 3), c("a", "b", "c")))
-    paste0(unlist(tdat[1, ]), collapse = "")
-    ?paste0
+  # for testing
+  
+  if (is.null(dim(input.data))) { 0 } else { dim(input.data[[1]]) }
+  tdat = as.data.frame(cbind(c(1, 2, 3), c("a", "b", "c")))
+  paste0(unlist(tdat[1, ]), collapse = "")
+  ?paste0
 }
+
+
+
+
 
