@@ -71,6 +71,19 @@ shinyServer(function(input, output) {
     read.csv(file = input$csvUpload$datapath)
   })
   
+  outputText = reactive({
+    req(input$csvUpload)
+    unlist(mapply(contract.Text, 
+                         unlist(inputSchema()[, "Type"]), 
+                         unlist(inputSchema()[, "Display"]))) 
+  })
+  
+  # downloadable contract
+  output$downloadContract = downloadHandler(
+    filename = "export_contract.txt", 
+    content = function(file) { write(paste0(outputText(), sep = "\n"), file = file) }
+  )
+  
   # the fields on the contract
   #contract.Fields = reactive({
   #    unlist(inputSchema()[, "Type"])
@@ -106,11 +119,7 @@ shinyServer(function(input, output) {
   
   
   output$theContract = renderText({
-    req(input$csvUpload)
-    paste0(unlist(mapply(contract.Text, 
-           unlist(inputSchema()[, "Type"]), 
-           unlist(inputSchema()[, "Display"]))), 
-           collapse = "</br>")
+    paste0(outputText(), collapse = "</br>")
   })
   
   

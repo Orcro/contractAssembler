@@ -42,6 +42,9 @@ shinyUI(fluidPage(
   # the "raw" output (what format is this?)
   wellPanel(
       uiOutput(outputId = "theContract")
-  ) 
+  ), 
+  
+  # download that contract
+  downloadButton("downloadContract", "Export Contract")
   
 ))
