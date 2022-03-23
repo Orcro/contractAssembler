@@ -26,6 +26,9 @@ shinyServer(function(input, output) {
   output$outputTitle = renderText({
     "<h3>Contract Output:</h3>"
   })
+  output$blankSpace = renderText({
+  "<h3>  </h3>"
+  })
   
   
   # a list to hold useful things
@@ -33,19 +36,19 @@ shinyServer(function(input, output) {
   
   
   # the magic is here
-  responsive.Widget = function(type, display) {
+  responsive.Widget = function(type, display, id) {
     
     #id = as.character(id)
     #output$id = renderText({ display })
     
     switch (type,
-            qbox = textInput(inputId = "theForm", label = display), 
+            qbox = textInput(inputId = id, label = display), 
             title_text = NULL,
             c_text = NULL
     )
   }
   
-  
+  # can these two be combined safely?
   contract.Text = function(type, display) {
     
     #id = as.character(id)
@@ -74,8 +77,8 @@ shinyServer(function(input, output) {
   outputText = reactive({
     req(input$csvUpload)
     unlist(mapply(contract.Text, 
-                         unlist(inputSchema()[, "Type"]), 
-                         unlist(inputSchema()[, "Display"]))) 
+                  unlist(inputSchema()[, "Type"]), 
+                  unlist(inputSchema()[, "Display"]))) 
   })
   
   # downloadable contract
@@ -108,11 +111,12 @@ shinyServer(function(input, output) {
         #c.index = 1:length(unlist(inputSchema()))
         
         mapply(responsive.Widget, 
-        #       c.index,
+               #       c.index,
                unlist(inputSchema()[, "Type"]),
-               unlist(inputSchema()[, "Display"]))
+               unlist(inputSchema()[, "Display"]),
+               unlist(inputSchema()[, "Field_Name"]))
       }, 
-      error = function(cond){
+      error = function(cond) {
         # 
       })
   })
@@ -121,6 +125,46 @@ shinyServer(function(input, output) {
   output$theContract = renderText({
     paste0(outputText(), collapse = "</br>")
   })
+  
+  
+  #bus = reactive({
+  #  req(input$csvUpload)
+  #      nom = unlist(inputSchema()[, "Field_Name"])[2]
+  #  tryCatch(
+  #    {
+  #      get(x = nom, pos = input)
+  #    }, 
+  #    error = function(cond) {
+  #      # 
+  #    })
+  #})
+  
+  #busName = reactive({
+  #  req(input$csvUpload)
+  #  input$Business_Name
+  #  # get(unlist(inputSchema()[, "Field_Name"])[2], pos = input)
+  #})
+  
+  fieldNames = reactive({
+    req(input$csvUpload)
+    unlist(inputSchema()[, "Field_Name"])
+  })
+  
+  
+  output$testIt = renderText({
+    # input$Business_Name
+    list_of_inputs = reactiveValuesToList(input)
+    t.out = unlist(list_of_inputs)
+    #paste0(t.out[6], " ", t.out[1])
+    t.out["Business_Name"] # this works!
+  })
+  
+  
+  #output$testIt = renderText({
+  #  req(input$csvUpload)
+  #  nom = unlist(inputSchema()[, "Field_Name"])[2]
+  #  get(x = nom, pos = input)
+  #})
   
   
 })

@@ -39,12 +39,15 @@ shinyUI(fluidPage(
   
   # contract output, reacts to user input in the previous widgets
   tableOutput(outputId = "outputTitle"),
+  tableOutput(outputId = "testIt"), 
   # the "raw" output (what format is this?)
   wellPanel(
       uiOutput(outputId = "theContract")
   ), 
   
   # download that contract
-  downloadButton("downloadContract", "Export Contract")
+  downloadButton("downloadContract", "Export Contract"), 
+  
+  tableOutput(outputId = "blankSpace")
   
 ))
