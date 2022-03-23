@@ -4,8 +4,12 @@
 
 # contractAssembler
 
-| :zap: Schema has changed, see /TESTS |
-| ------------------------------------ |
+<div align="center">
+
+| :zap: Schema has changed, see `/TESTS` |
+| -------------------------------------- |
+
+</div>
 
 <div align="center">
 
