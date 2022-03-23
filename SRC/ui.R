@@ -9,7 +9,7 @@ library(shiny)
 shinyUI(fluidPage(
 
   # app header
-  titlePanel("Contract assembler prototype, version 0.1.0"),
+  titlePanel("Contract assembler prototype, v0.1.0"),
 
   # user's csv input
   fileInput(inputId = "csvUpload", 

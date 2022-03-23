@@ -35,7 +35,7 @@ shinyServer(function(input, output) {
   ui.list = list()
   
   
-  # the magic is here
+  # switch responds to schema names
   responsive.Widget = function(type, display, id) {
     
     #id = as.character(id)
@@ -76,9 +76,15 @@ shinyServer(function(input, output) {
   
   outputText = reactive({
     req(input$csvUpload)
-    unlist(mapply(contract.Text, 
+        t.out = unlist(list_of_inputs())
+        #paste0(t.out[6], " ", t.out[1])
+        t.index = unlist(list_of_fields())
+        
+     a = t.out[t.index] # this works!
+    b = unlist(mapply(contract.Text, 
                   unlist(inputSchema()[, "Type"]), 
                   unlist(inputSchema()[, "Display"]))) 
+    c(a, b)
   })
   
   # downloadable contract
@@ -145,22 +151,35 @@ shinyServer(function(input, output) {
   #  # get(unlist(inputSchema()[, "Field_Name"])[2], pos = input)
   #})
   
-  fieldNames = reactive({
-    req(input$csvUpload)
-    unlist(inputSchema()[, "Field_Name"])
-  })
+  #fieldNames = reactive({
+  #  req(input$csvUpload)
+  #  unlist(inputSchema()[, "Field_Name"])
+  #})
   
   
-  output$testIt = renderText({
-    # input$Business_Name
-    list_of_inputs = reactiveValuesToList(input)
-    t.out = unlist(list_of_inputs)
-    #paste0(t.out[6], " ", t.out[1])
-    t.out["Business_Name"] # this works!
-  })
+    list_of_inputs = reactive({ 
+        reactiveValuesToList(input)
+    })
+    
+    
+    list_of_fields = reactive({ 
+        req(input$csvUpload)
+        inputSchema()[, "Field_Name"]
+    })
+
   
-  
-  #output$testIt = renderText({
+    #output$testIt = renderText({
+    #    # input$Business_Name
+    #    # req(input$csvUpload)
+    #    t.out = unlist(list_of_inputs())
+    #    #paste0(t.out[6], " ", t.out[1])
+    #    t.index = unlist(list_of_fields())
+    #    
+    #    t.out[t.index] # this works!
+    #})
+    
+    
+    #output$testIt = renderText({
   #  req(input$csvUpload)
   #  nom = unlist(inputSchema()[, "Field_Name"])[2]
   #  get(x = nom, pos = input)
