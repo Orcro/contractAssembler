@@ -14,6 +14,7 @@ Notable changes to this project will be documented in this file (log). This log 
 
 - can now access data from uploaded schema
 - titles
+- input widgets appear
 
 ### Changed
 

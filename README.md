@@ -6,6 +6,13 @@
 
 <div align="center">
 
+| :zap: Schema has changed, see `/TESTS` |
+| -------------------------------------- |
+
+</div>
+
+<div align="center">
+
 [![REUSE status](https://api.reuse.software/badge/github.com/galacticalex/contractAssembler)](https://api.reuse.software/info/github.com/galacticalex/contractAssembler) [![GitHub](https://img.shields.io/github/license/galacticalex/contractAssembler)](https://img.shields.io/github/license/galacticalex/contractAssembler)
 
 </div>
