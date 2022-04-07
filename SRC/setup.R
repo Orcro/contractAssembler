@@ -1,6 +1,10 @@
+
 # SPDX-FileCopyrightText: 2022 Orcro Ltd. <team@orcro.co.uk>
 #
 # SPDX-License-Identifier: CC0-1.0
+
+
+# setup.R
 
 
 # don't execute this script every deployment! jump ahead to line 18

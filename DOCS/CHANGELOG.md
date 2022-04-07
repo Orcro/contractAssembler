@@ -8,7 +8,43 @@ Notable changes to this project will be documented in this file (log). This log 
 
 `Unreleased` features are not shown on the current demo web application. The most recent version is [0.0.1].
 
-## [Unreleased] 
+## [Unreleased] 23-03-2022
+
+### Added
+
+- n/a
+
+### Changed
+
+- n/a
+
+### Removed
+
+- n/a
+
+### Fixed
+
+- n/a
+
+## [0.1.1] 23-03-2022
+
+### Added
+
+- n/a
+
+### Changed
+
+- `ui.R` and `server.R` refactored for easier maintainability
+
+### Removed
+
+- n/a
+
+### Fixed
+
+- [#2](https://github.com/galacticalex/contractAssembler/issues/2) by updating gitignore
+
+## [0.1.0] 23-03-2022
 
 ### Added
 
@@ -26,9 +62,9 @@ Notable changes to this project will be documented in this file (log). This log 
 
 ### Fixed
 
-- [#2](https://github.com/galacticalex/contractAssembler/issues/2) by updating gitignore
+- n/a
 
-## [0.0.1] - 17-01-2022
+## 0.0.1 - 17-01-2022
 
 ### Added
 
@@ -51,4 +87,4 @@ Notable changes to this project will be documented in this file (log). This log 
 - n/a
 
 [Unreleased]: https://github.com/galacticalex/contractAssembler
-[0.0.1]: https://github.com/galacticalex/contractAssembler
+[0.1.1]: https://github.com/galacticalex/contractAssembler
