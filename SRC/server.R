@@ -61,18 +61,18 @@ shinyServer(function(input, output) {
         inputSchema()[, "Field_Name"]
     })
     
+    # User data entered into form widgets.
+    form_data = reactive({
+        req(input$csvUpload)
+        unlist(list_of_inputs()[list_of_fields()])
+    })
+    
     # Text output for preview before downloading. ## Needs work ##
     outputText = reactive({
         req(input$csvUpload)
-        t.out = unlist(list_of_inputs())
-        #paste0(t.out[6], " ", t.out[1])
-        t.index = unlist(list_of_fields())
-        
-        a = t.out[t.index] # this works!
-        b = unlist(mapply(contract.Text, 
-                          unlist(inputSchema()[, "Type"]), 
-                          unlist(inputSchema()[, "Display"]))) 
-        c(a, b)
+        unlist(mapply(contract.Text, 
+                      unlist(inputSchema()[, "Type"]), 
+                      unlist(inputSchema()[, "Display"]))) 
     })
     
     
@@ -105,8 +105,19 @@ shinyServer(function(input, output) {
         switch (type,
                 qbox = NULL, 
                 title_text = NULL,
-                c_text = display
+                c_text = dynamic.Paragraph(display)
+                # issue6
         )
+    }
+    
+    dynamic.Paragraph = function(text) {
+        paragraph = text
+        dt = unlist(form_data())
+        nm = names(dt)
+        for (i in seq_along(form_data())) {
+            paragraph = gsub(nm[i], dt[i], paragraph)
+        }
+        paragraph
     }
     
     

@@ -14,7 +14,7 @@ shinyUI(fluidPage(
     
     
     # Website Title
-    titlePanel(title = "Contract assembler prototype, v0.1.1"),
+    titlePanel(title = "Contract assembler prototype, v0.2.0"),
     
     
     # Button with upload file functionality, accepts .csv files only.
