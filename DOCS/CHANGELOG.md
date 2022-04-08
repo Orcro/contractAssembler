@@ -6,17 +6,17 @@
 
 Notable changes to this project will be documented in this file (log). This log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
-`Unreleased` features are not shown on the current demo web application. The most recent version is [0.0.1].
+`Unreleased` features are not shown on the current demo web application. The most recent version is [0.2.0].
 
-## [Unreleased] 23-03-2022
+## [0.2.0] 23-03-2022
 
 ### Added
 
-- n/a
+- Dynamic text in contract is now in the correct place.
 
 ### Changed
 
-- n/a
+- `test1.csv` field names are now also bounded by chevrons (`<` and `>`)
 
 ### Removed
 
@@ -24,7 +24,7 @@ Notable changes to this project will be documented in this file (log). This log 
 
 ### Fixed
 
-- n/a
+- Issue [#6](https://github.com/galacticalex/contractAssembler/issues/6)
 
 ## [0.1.1] 23-03-2022
 
@@ -38,13 +38,13 @@ Notable changes to this project will be documented in this file (log). This log 
 
 ### Removed
 
-- n/a
+- Lots of old comments.
 
 ### Fixed
 
 - [#2](https://github.com/galacticalex/contractAssembler/issues/2) by updating gitignore
 
-## [0.1.0] 23-03-2022
+## 0.1.0 23-03-2022
 
 ### Added
 
@@ -87,4 +87,4 @@ Notable changes to this project will be documented in this file (log). This log 
 - n/a
 
 [Unreleased]: https://github.com/galacticalex/contractAssembler
-[0.1.1]: https://github.com/galacticalex/contractAssembler
+[0.2.0]: https://github.com/galacticalex/contractAssembler

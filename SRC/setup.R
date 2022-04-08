@@ -13,7 +13,6 @@
 install.packages("rsconnect")
 install.packages("shiny")
 
-
 # deploy contractAssembler to  https://galacticalex.shinyapps.io/contractassembler/
 library(rsconnect)
 

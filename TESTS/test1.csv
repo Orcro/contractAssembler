@@ -3,5 +3,5 @@ form,title_text,Title,Main_Top,Initial Questions
 form,qbox,Business_Name,Main_Next,What is the legal name of the business?
 form,qbox,Trading_Name,Main_Next,What is the trading name of the business?
 contract,c_text,D1,Main_Top,Generic business contract.
-contract,c_text,D2,Main_Next,"""Provider"" means <Business_Name>, doing business as <Trading_Name>."
+contract,c_text,D2,Main_Next,"""Provider"" means Business_Name, doing business as Trading_Name."
 contract,c_text,D3,Main_Next,Provider does some business things and it’s all good. This is just blah to fill the space.
