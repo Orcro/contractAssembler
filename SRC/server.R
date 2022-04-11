@@ -32,7 +32,7 @@ shinyServer(function(input, output) {
     })
     
     output$outputTitle = renderText({
-        "<h3>Contract Output:</h3>"
+        "<h3>Contract output:</h3>"
     })
     
     output$blankSpace = renderText({

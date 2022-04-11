@@ -24,6 +24,4 @@ deployApp(localLocation, appName = "contractAssembler")
 
 # run locally
 library(shiny)
-localLocation = "SRC"
-setwd(localLocation)
-runApp()
+runApp(appDir = "SRC/")

@@ -25,7 +25,8 @@ A web application written in [R](https://cran.r-project.org) with the help of [S
 
 1. Go to the [website](https://galacticalex.shinyapps.io/contractassembler/)
 2. Upload a `.csv` file which follows the spec
-3. ...
+3. Input responses to any questions that may appear.
+4. Export (download) the finished contract.
 
 # Licensing
 

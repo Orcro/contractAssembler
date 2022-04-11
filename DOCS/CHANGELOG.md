@@ -6,9 +6,27 @@
 
 Notable changes to this project will be documented in this file (log). This log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
-`Unreleased` features are not shown on the current demo web application. The most recent version is [0.2.0].
+`Unreleased` features are not shown on the current demo web application. The most recent version is [0.2.1].
 
-## [0.2.0] 23-03-2022
+## [0.2.1] 23-03-2022
+
+### Added
+
+- U/I enhancements
+
+### Changed
+
+- n/a
+
+### Removed
+
+- n/a
+
+### Fixed
+
+- n/a
+
+## 0.2.0 23-03-2022
 
 ### Added
 
@@ -26,7 +44,7 @@ Notable changes to this project will be documented in this file (log). This log 
 
 - Issue [#6](https://github.com/galacticalex/contractAssembler/issues/6)
 
-## [0.1.1] 23-03-2022
+## 0.1.1 23-03-2022
 
 ### Added
 
@@ -87,4 +105,4 @@ Notable changes to this project will be documented in this file (log). This log 
 - n/a
 
 [Unreleased]: https://github.com/galacticalex/contractAssembler
-[0.2.0]: https://github.com/galacticalex/contractAssembler
+[0.2.1]: https://github.com/galacticalex/contractAssembler
