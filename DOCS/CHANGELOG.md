@@ -16,7 +16,7 @@ Notable changes to this project will be documented in this file (log). This log 
 
 ### Changed
 
-- n/a
+- Extended tests for UI
 
 ### Removed
 

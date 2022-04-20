@@ -20,7 +20,7 @@ library(rsconnect)
 rsconnect::setAccountInfo(name = '<USERNAME>', 
                           token = '<TOKEN>', 
                           secret = '<SECRET>')
-deployApp(localLocation, appName = "contractAssembler")
+deployApp("SRC/", appName = "contractAssembler")
 
 # run locally
 library(shiny)
